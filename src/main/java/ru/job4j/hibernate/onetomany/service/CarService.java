@@ -1,6 +1,6 @@
-package ru.job4j.hibernate.cars.service;
+package ru.job4j.hibernate.onetomany.service;
 
-import ru.job4j.hibernate.cars.model.Car;
+import ru.job4j.hibernate.onetomany.model.Car;
 
 public interface CarService {
 

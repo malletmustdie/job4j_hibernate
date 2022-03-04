@@ -1,4 +1,4 @@
-package ru.job4j.hibernate.cars.model;
+package ru.job4j.hibernate.manytomany.books;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_model")
-public class Car {
+@Table(name = "books")
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +18,12 @@ public class Car {
 
     private String name;
 
-    public Car(String name) {
-        this.name = name;
+    public Book() {
+
     }
 
-    public Car() {
-
+    public Book(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -50,8 +50,8 @@ public class Car {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(name, car.name);
+        Book book = (Book) o;
+        return Objects.equals(id, book.id) && Objects.equals(name, book.name);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("Car= id: %d, name: %s", id, name);
+        return String.format("Book= id: %d, name: %s", id, name);
     }
 
 }

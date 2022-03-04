@@ -1,11 +1,11 @@
-package ru.job4j.hibernate.cars;
+package ru.job4j.hibernate.onetomany;
 
 import java.util.List;
 
-import ru.job4j.hibernate.cars.model.Brand;
-import ru.job4j.hibernate.cars.model.Car;
-import ru.job4j.hibernate.cars.service.BrandService;
-import ru.job4j.hibernate.cars.service.impl.BrandServiceImpl;
+import ru.job4j.hibernate.onetomany.model.Brand;
+import ru.job4j.hibernate.onetomany.model.Car;
+import ru.job4j.hibernate.onetomany.service.BrandService;
+import ru.job4j.hibernate.onetomany.service.impl.BrandServiceImpl;
 
 public class Application {
 

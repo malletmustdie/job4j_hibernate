@@ -1,9 +1,9 @@
-package ru.job4j.hibernate.cars.service.impl;
+package ru.job4j.hibernate.onetomany.service.impl;
 
-import ru.job4j.hibernate.cars.model.Brand;
-import ru.job4j.hibernate.cars.repository.BrandRepository;
-import ru.job4j.hibernate.cars.repository.impl.BrandRepositoryImpl;
-import ru.job4j.hibernate.cars.service.BrandService;
+import ru.job4j.hibernate.onetomany.model.Brand;
+import ru.job4j.hibernate.onetomany.repository.BrandRepository;
+import ru.job4j.hibernate.onetomany.repository.impl.BrandRepositoryImpl;
+import ru.job4j.hibernate.onetomany.service.BrandService;
 
 public class BrandServiceImpl implements BrandService {
 

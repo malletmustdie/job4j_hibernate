@@ -1,6 +1,6 @@
-package ru.job4j.hibernate.cars.repository;
+package ru.job4j.hibernate.onetomany.repository;
 
-import ru.job4j.hibernate.cars.model.Brand;
+import ru.job4j.hibernate.onetomany.model.Brand;
 
 public interface BrandRepository {
 

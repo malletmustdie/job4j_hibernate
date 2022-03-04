@@ -1,8 +1,8 @@
-package ru.job4j.hibernate.cars.repository.impl;
+package ru.job4j.hibernate.onetomany.repository.impl;
 
-import ru.job4j.hibernate.cars.model.Car;
-import ru.job4j.hibernate.cars.repository.AbstractRepository;
-import ru.job4j.hibernate.cars.repository.CarRepository;
+import ru.job4j.hibernate.onetomany.model.Car;
+import ru.job4j.hibernate.onetomany.repository.AbstractRepository;
+import ru.job4j.hibernate.onetomany.repository.CarRepository;
 
 public class CarRepositoryImpl extends AbstractRepository implements CarRepository {
 

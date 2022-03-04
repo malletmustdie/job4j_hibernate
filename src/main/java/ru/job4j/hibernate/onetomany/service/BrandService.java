@@ -1,6 +1,6 @@
-package ru.job4j.hibernate.cars.service;
+package ru.job4j.hibernate.onetomany.service;
 
-import ru.job4j.hibernate.cars.model.Brand;
+import ru.job4j.hibernate.onetomany.model.Brand;
 
 public interface BrandService {
 

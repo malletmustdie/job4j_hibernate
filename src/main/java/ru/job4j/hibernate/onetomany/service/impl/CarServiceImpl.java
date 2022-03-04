@@ -1,9 +1,9 @@
-package ru.job4j.hibernate.cars.service.impl;
+package ru.job4j.hibernate.onetomany.service.impl;
 
-import ru.job4j.hibernate.cars.model.Car;
-import ru.job4j.hibernate.cars.repository.CarRepository;
-import ru.job4j.hibernate.cars.repository.impl.CarRepositoryImpl;
-import ru.job4j.hibernate.cars.service.CarService;
+import ru.job4j.hibernate.onetomany.model.Car;
+import ru.job4j.hibernate.onetomany.repository.CarRepository;
+import ru.job4j.hibernate.onetomany.repository.impl.CarRepositoryImpl;
+import ru.job4j.hibernate.onetomany.service.CarService;
 
 public class CarServiceImpl implements CarService {
 

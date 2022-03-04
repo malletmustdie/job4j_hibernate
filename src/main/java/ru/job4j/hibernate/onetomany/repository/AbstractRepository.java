@@ -1,4 +1,4 @@
-package ru.job4j.hibernate.cars.repository;
+package ru.job4j.hibernate.onetomany.repository;
 
 import java.util.function.Function;
 

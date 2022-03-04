@@ -1,8 +1,8 @@
-package ru.job4j.hibernate.cars.repository.impl;
+package ru.job4j.hibernate.onetomany.repository.impl;
 
-import ru.job4j.hibernate.cars.model.Brand;
-import ru.job4j.hibernate.cars.repository.AbstractRepository;
-import ru.job4j.hibernate.cars.repository.BrandRepository;
+import ru.job4j.hibernate.onetomany.model.Brand;
+import ru.job4j.hibernate.onetomany.repository.AbstractRepository;
+import ru.job4j.hibernate.onetomany.repository.BrandRepository;
 
 public class BrandRepositoryImpl extends AbstractRepository implements BrandRepository {
 

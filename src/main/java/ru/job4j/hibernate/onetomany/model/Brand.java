@@ -1,4 +1,4 @@
-package ru.job4j.hibernate.cars.model;
+package ru.job4j.hibernate.onetomany.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

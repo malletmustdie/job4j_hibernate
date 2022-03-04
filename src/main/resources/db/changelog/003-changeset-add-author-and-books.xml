@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="create_author_table" author="elias">
+        <createTable tableName="author">
+            <column name="id" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="author_pk"/>
+            </column>
+            <column name="name" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_books_table" author="elias">
+        <createTable tableName="books">
+            <column name="id" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="books_pk"/>
+            </column>
+            <column name="name" type="text"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
