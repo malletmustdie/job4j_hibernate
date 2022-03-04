@@ -26,8 +26,9 @@ public class HbmRun {
             Person second = Person.of("Anatoliy");
             second.getAddresses().add(two);
 
-//            session.save(first);
-//            session.save(second);
+            session.save(first);
+            session.save(second);
+
             Person person = session.get(Person.class, 1);
             session.remove(person);
 
