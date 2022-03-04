@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="create_brand_table" author="elias">
+        <createTable tableName="brand">
+            <column name="id" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="brand_pk"/>
+            </column>
+            <column name="name" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_model_table" author="elias">
+        <createTable tableName="model">
+            <column name="id" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="model_pk"/>
+            </column>
+            <column name="name" type="text"/>
+            <column name="brand_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add_constraint_to_model_table" author="elias">
+        <addForeignKeyConstraint baseColumnNames="brand_id"
+                                 baseTableName="model"
+                                 constraintName="fk_brand_id"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="NO ACTION"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id"
+                                 referencedTableName="brand"
+                                 validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

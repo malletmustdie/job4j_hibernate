@@ -1,6 +1,6 @@
 package ru.job4j.hibernate.onetomany.service.impl;
 
-import ru.job4j.hibernate.onetomany.model.Car;
+import ru.job4j.hibernate.onetomany.model.CarModel;
 import ru.job4j.hibernate.onetomany.repository.CarRepository;
 import ru.job4j.hibernate.onetomany.repository.impl.CarRepositoryImpl;
 import ru.job4j.hibernate.onetomany.service.CarService;
@@ -10,7 +10,7 @@ public class CarServiceImpl implements CarService {
     private final CarRepository carRepository = CarRepositoryImpl.getCarRepository();
 
     @Override
-    public Car save(Car car) {
+    public CarModel save(CarModel car) {
         return carRepository.add(car);
     }
 
@@ -20,7 +20,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Car findById(Long id) {
+    public CarModel findById(Long id) {
         return carRepository.findById(id);
     }
 

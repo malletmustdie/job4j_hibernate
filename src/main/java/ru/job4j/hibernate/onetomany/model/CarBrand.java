@@ -1,16 +1,21 @@
 package ru.job4j.hibernate.onetomany.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_model")
-public class Car {
+@Table(name = "car_brand")
+public class CarBrand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +23,16 @@ public class Car {
 
     private String name;
 
-    public Car(String name) {
-        this.name = name;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "brand_id")
+    private List<CarModel> models = new ArrayList<>();
+
+    public CarBrand() {
+
     }
 
-    public Car() {
-
+    public CarBrand(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -42,6 +51,14 @@ public class Car {
         this.name = name;
     }
 
+    public List<CarModel> getModels() {
+        return models;
+    }
+
+    public void setModels(List<CarModel> models) {
+        this.models = models;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -50,18 +67,18 @@ public class Car {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(name, car.name);
+        CarBrand brand = (CarBrand) o;
+        return Objects.equals(id, brand.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return String.format("Car= id: %d, name: %s", id, name);
+        return String.format("Brand= id: %d, name: %s", id, name);
     }
 
 }

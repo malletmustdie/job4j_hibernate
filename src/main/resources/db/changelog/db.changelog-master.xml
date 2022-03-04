@@ -6,4 +6,6 @@
     <include file="001-changeset-database-init.xml" relativeToChangelogFile="true"/>
     <include file="002-changeset-add-persons-and-addresses.xml" relativeToChangelogFile="true"/>
     <include file="003-changeset-add-author-and-books.xml" relativeToChangelogFile="true"/>
+    <include file="004-changeset-add-task-and-category.xml" relativeToChangelogFile="true"/>
+    <include file="005-changeset-add-brand-and-model.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

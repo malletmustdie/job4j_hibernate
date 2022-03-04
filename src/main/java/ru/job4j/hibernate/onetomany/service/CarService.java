@@ -1,13 +1,13 @@
 package ru.job4j.hibernate.onetomany.service;
 
-import ru.job4j.hibernate.onetomany.model.Car;
+import ru.job4j.hibernate.onetomany.model.CarModel;
 
 public interface CarService {
 
-    Car save(Car car);
+    CarModel save(CarModel car);
 
     void delete(Long id);
 
-    Car findById(Long id);
+    CarModel findById(Long id);
 
 }

@@ -1,6 +1,6 @@
 package ru.job4j.hibernate.onetomany.repository.impl;
 
-import ru.job4j.hibernate.onetomany.model.Brand;
+import ru.job4j.hibernate.onetomany.model.CarBrand;
 import ru.job4j.hibernate.onetomany.repository.AbstractRepository;
 import ru.job4j.hibernate.onetomany.repository.BrandRepository;
 
@@ -19,7 +19,7 @@ public class BrandRepositoryImpl extends AbstractRepository implements BrandRepo
     }
 
     @Override
-    public Brand add(Brand brand) {
+    public CarBrand add(CarBrand brand) {
         this.tx(session -> session.save(brand));
         return brand;
     }
@@ -27,15 +27,15 @@ public class BrandRepositoryImpl extends AbstractRepository implements BrandRepo
     @Override
     public void delete(Long id) {
         this.tx(session ->
-                        session.createQuery("delete from Brand b where b.id = :id")
+                        session.createQuery("delete from CarBrand b where b.id = :id")
                                .setParameter("id", id)
                                .executeUpdate());
     }
 
     @Override
-    public Brand findById(Long id) {
-        return (Brand) this.tx(session ->
-                                       session.createQuery("from Brand b where b.id = :id")
+    public CarBrand findById(Long id) {
+        return (CarBrand) this.tx(session ->
+                                       session.createQuery("from CarBrand b where b.id = :id")
                                               .setParameter("id", id)
                                               .uniqueResult());
     }

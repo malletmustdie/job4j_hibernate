@@ -2,8 +2,8 @@ package ru.job4j.hibernate.onetomany;
 
 import java.util.List;
 
-import ru.job4j.hibernate.onetomany.model.Brand;
-import ru.job4j.hibernate.onetomany.model.Car;
+import ru.job4j.hibernate.onetomany.model.CarBrand;
+import ru.job4j.hibernate.onetomany.model.CarModel;
 import ru.job4j.hibernate.onetomany.service.BrandService;
 import ru.job4j.hibernate.onetomany.service.impl.BrandServiceImpl;
 
@@ -11,24 +11,24 @@ public class Application {
 
     public static void main(String[] args) {
         BrandService brandService = new BrandServiceImpl();
-        Brand vw = new Brand("Volkswagen");
-        List<Car> vwModels = List.of(
-                new Car("Polo"),
-                new Car("Jetta"),
-                new Car("Passat"),
-                new Car("Taos"),
-                new Car("Tiguan"),
-                new Car("Touareg")
+        CarBrand vw = new CarBrand("Volkswagen");
+        List<CarModel> vwModels = List.of(
+                new CarModel("Polo"),
+                new CarModel("Jetta"),
+                new CarModel("Passat"),
+                new CarModel("Taos"),
+                new CarModel("Tiguan"),
+                new CarModel("Touareg")
         );
         vw.setModels(vwModels);
-        Brand lada = new Brand("Lada");
-        List<Car> ladaModels = List.of(
-                new Car("Priora"),
-                new Car("Granta"),
-                new Car("Vesta"),
-                new Car("X-ray"),
-                new Car("Niva"),
-                new Car("Kalina")
+        CarBrand lada = new CarBrand("Lada");
+        List<CarModel> ladaModels = List.of(
+                new CarModel("Priora"),
+                new CarModel("Granta"),
+                new CarModel("Vesta"),
+                new CarModel("X-ray"),
+                new CarModel("Niva"),
+                new CarModel("Kalina")
         );
         lada.setModels(ladaModels);
         brandService.save(vw);

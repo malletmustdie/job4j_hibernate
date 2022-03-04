@@ -1,13 +1,13 @@
 package ru.job4j.hibernate.onetomany.repository;
 
-import ru.job4j.hibernate.onetomany.model.Brand;
+import ru.job4j.hibernate.onetomany.model.CarBrand;
 
 public interface BrandRepository {
 
-    Brand add(Brand brand);
+    CarBrand add(CarBrand brand);
 
     void delete(Long id);
 
-    Brand findById(Long id);
+    CarBrand findById(Long id);
 
 }
