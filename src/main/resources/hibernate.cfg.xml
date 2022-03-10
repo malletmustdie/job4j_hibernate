@@ -26,5 +26,6 @@
         <mapping class="ru.job4j.hibernate.lazy.tasks.Task" />
         <mapping class="ru.job4j.hibernate.lazy.car.Brand" />
         <mapping class="ru.job4j.hibernate.lazy.car.Car" />
+        <mapping class="ru.job4j.hibernate.candidates.Candidate" />
     </session-factory>
 </hibernate-configuration>
