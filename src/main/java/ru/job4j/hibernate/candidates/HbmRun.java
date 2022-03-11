@@ -38,13 +38,13 @@ public class HbmRun {
                                        .uniqueResult();
             System.out.println(candidateFoundedById);
 
-            Candidate candidateFoundedByName =
-                    (Candidate) session.createQuery(
-                                               "from Candidate c "
-                                                       + "where c.name = :name")
-                                       .setParameter("name", "Jim")
-                                       .uniqueResult();
-            System.out.println(candidateFoundedByName);
+            List<Candidate> candidatesFoundedByName =
+                    session.createQuery(
+                                   "from Candidate c "
+                                           + "where c.name = :name")
+                           .setParameter("name", "Jim")
+                           .list();
+            candidatesFoundedByName.forEach(c -> System.out.println(c.getName() + " - " + c.getSalary()));
 
             session.createQuery("update Candidate c "
                                         + "set c.name = :name, "
