@@ -44,7 +44,9 @@ public class HbmRun {
                                            + "where c.name = :name")
                            .setParameter("name", "Jim")
                            .list();
-            candidatesFoundedByName.forEach(c -> System.out.println(c.getName() + " - " + c.getSalary()));
+            candidatesFoundedByName.forEach(
+                    c -> System.out.println(c.getName() + " - " + c.getSalary())
+            );
 
             session.createQuery("update Candidate c "
                                         + "set c.name = :name, "
