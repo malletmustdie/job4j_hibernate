@@ -18,6 +18,8 @@
         <mockito.version>4.3.1</mockito.version>
         <postgres.version>42.3.2</postgres.version>
         <h2.version>2.1.210</h2.version>
+        <hsqldb.version>2.5.1</hsqldb.version>
+        <dbcp2.version>2.9.0</dbcp2.version>
         <hibernate.version>5.6.5.Final</hibernate.version>
         <checkstyle.version>8.45</checkstyle.version>
         <checkstyle.mavenplugin.version>3.1.2</checkstyle.mavenplugin.version>
@@ -83,9 +85,20 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>${hsqldb.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${dbcp2.version}</version>
         </dependency>
     </dependencies>
 
