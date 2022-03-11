@@ -1,13 +1,19 @@
 package ru.job4j.hibernate.candidates;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "candidates")
 public class Candidate {
 
     @Id
@@ -19,6 +25,10 @@ public class Candidate {
     private Integer experience;
 
     private Double salary;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private VacancyStore store;
 
     public Candidate() {
     }
@@ -55,6 +65,14 @@ public class Candidate {
         this.salary = salary;
     }
 
+    public VacancyStore getStore() {
+        return store;
+    }
+
+    public void setStore(VacancyStore store) {
+        this.store = store;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -74,11 +92,12 @@ public class Candidate {
 
     @Override
     public String toString() {
-        return String.format("Candidate: id=%s, name=%s, experience=%d, salary=%f",
-                             id,
-                             name,
-                             experience,
-                             salary);
+        return String.format(
+                "Candidate: id=%s, name=%s, experience=%d, salary=%f",
+                id,
+                name,
+                experience,
+                salary);
     }
 
 }

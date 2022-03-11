@@ -1,5 +1,6 @@
 package ru.job4j.hibernate.candidates;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -11,8 +12,12 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class HbmRun {
 
     public static void main(String[] args) {
+
+        List<Candidate> result = new ArrayList<>();
+
         final StandardServiceRegistry registry =
                 new StandardServiceRegistryBuilder().configure().build();
+
         try {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
@@ -22,9 +27,26 @@ public class HbmRun {
             Candidate two = Candidate.of("Michael", 3, 190000.0);
             Candidate three = Candidate.of("Jim", 10, 999999.999);
 
+            VacancyStore vacancyStoreOne = VacancyStore.of("Store-1");
+            VacancyStore vacancyStoreTwo = VacancyStore.of("Store-2");
+
+            Vacancy vacancyOne = new Vacancy("Alex Vacancy");
+            Vacancy vacancyTwo = new Vacancy("Michael Vacancy");
+            Vacancy vacancyThree = new Vacancy("Jim Vacancy");
+
+            vacancyStoreOne.addVacancy(vacancyOne);
+            vacancyStoreTwo.addVacancy(vacancyTwo);
+            vacancyStoreTwo.addVacancy(vacancyThree);
+
+            one.setStore(vacancyStoreOne);
+            two.setStore(vacancyStoreTwo);
+            three.setStore(vacancyStoreTwo);
+
             session.save(one);
             session.save(two);
             session.save(three);
+            session.save(vacancyStoreOne);
+            session.save(vacancyStoreTwo);
 
             List<Candidate> candidates = session.createQuery("from Candidate c")
                                                 .list();
@@ -60,8 +82,15 @@ public class HbmRun {
                    .executeUpdate();
 
             session.createQuery("delete from Candidate c where c.id = :fId")
-                   .setParameter("fId", 7L)
+                   .setParameter("fId", 3L)
                    .executeUpdate();
+
+            result = session.createQuery("from Candidate c "
+                                                 + "join fetch c.store vs "
+                                                 + "join fetch vs.vacancies "
+                                                 + "where c.id = :fId")
+                            .setParameter("fId", 1L)
+                            .list();
 
             session.getTransaction().commit();
             session.close();
@@ -70,6 +99,8 @@ public class HbmRun {
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
         }
+
+        result.forEach(System.out::println);
     }
 
 }
